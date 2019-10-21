@@ -1,0 +1,51 @@
+{
+    "name": "pixelfed/pixelfed-api-php",
+    "description": "Pixelfed API Library for PHP",
+    "keywords": [
+        "pixelfed",
+        "pixelfed-api-php"
+    ],
+    "homepage": "https://github.com/pixelfed/pixelfed-api-php",
+    "license": "AGPL-3.0-only",
+    "authors": [
+        {
+            "name": "Daniel Supernault",
+            "email": "hello@pixelfed.org",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.3"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^4.3",
+        "phpunit/phpunit": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pixelfed\\Api\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pixelfed\\Api\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pixelfed\\Api\\ApiServiceProvider"
+            ],
+            "aliases": {
+                "Api": "Pixelfed\\Api\\ApiFacade"
+            }
+        }
+    }
+}
