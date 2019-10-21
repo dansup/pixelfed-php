@@ -1,11 +1,14 @@
 {
-    "name": "pixelfed/pixelfed-api-php",
-    "description": "Pixelfed API Library for PHP",
+    "name": "pixelfed/php-sdk",
+    "description": "Pixelfed PHP SDK",
     "keywords": [
         "pixelfed",
-        "pixelfed-api-php"
+        "pixelfed-sdk",
+        "api",
+        "fediverse",
+        "library"
     ],
-    "homepage": "https://github.com/pixelfed/pixelfed-api-php",
+    "homepage": "https://github.com/pixelfed/pixelfed-php",
     "license": "AGPL-3.0-only",
     "authors": [
         {
