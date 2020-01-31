@@ -22,8 +22,21 @@ php -f examples/nodeinfo.php
 
 ## Methods
 
+### nodeinfo()
+> GET /api/nodeinfo/2.0.json
+
+```php
+use \Pixelfed\PixelfedApi;
+
+$domain = 'https://pixelfed.social';
+$api = new PixelfedApi($domain);
+$nodeinfo = $api->nodeinfo();
+```
+
 ### user()
 > GET /api/v1/accounts/verify_credentials
+
+**AUTHENTICATION REQUIRED**
 
 ```php
 use \Pixelfed\PixelfedApi;
