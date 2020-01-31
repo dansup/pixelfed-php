@@ -53,6 +53,12 @@ class PixelfedApi
 		return $this->get();
 	}
 
+	public function nodeinfo()
+	{
+		$this->furl("/api/nodeinfo/2.0.json");
+		return $this->get();
+	}
+
 	protected function get()
 	{
 		return $this->client->get($this->curl)->json();

@@ -1,8 +1,40 @@
 # Pixelfed PHP SDK
 
-WIP
+WIP. Use at your own risk.
 
-### Changelog
+## Installation
+
+Install with [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
+
+```php
+composer require dansup/pixelfed-php
+```
+
+## Authentication
+To use this library, you must first obtain a Personal Access Token. Not all instances support this type of authorization yet.
+
+## Examples
+### Nodeinfo
+```php
+php -f examples/nodeinfo.php
+```
+
+
+## Methods
+
+### user()
+> GET /api/v1/accounts/verify_credentials
+
+```php
+use \Pixelfed\PixelfedApi;
+
+$domain = 'https://pixelfed.social';
+$token = 'personal-access-token-here';
+$api = new PixelfedApi($domain, $token);
+$user = $api->user();
+```
+
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
@@ -12,5 +44,5 @@ Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
 
 ## Credits
 
-- [Daniel Supernault](https://github.com/pixelfed)
+- [Daniel Supernault](https://github.com/dansup)
 - [All Contributors](../../contributors)
