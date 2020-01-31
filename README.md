@@ -6,7 +6,7 @@ WIP. Use at your own risk.
 
 Install with [Composer](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)
 
-```php
+```bash
 composer require dansup/pixelfed-php
 ```
 
@@ -15,7 +15,7 @@ To use this library, you must first obtain a Personal Access Token. Not all inst
 
 ## Examples
 ### Nodeinfo
-```php
+```bash
 php -f examples/nodeinfo.php
 ```
 
