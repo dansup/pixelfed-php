@@ -59,6 +59,24 @@ class PixelfedApi
 		return $this->get();
 	}
 
+	public function accountSearch($query)
+	{
+		$this->furl("/api/v1/accounts/search?q={$query}");
+		return $this->get();
+	}
+
+	public function accountBlocks()
+	{
+		$this->furl("/api/v1/blocks");
+		return $this->get();
+	}
+
+	public function accountLikes()
+	{
+		$this->furl("/api/v1/favourites");
+		return $this->get();
+	}
+
 	protected function get()
 	{
 		return $this->client->get($this->curl)->json();

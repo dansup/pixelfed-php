@@ -1,6 +1,6 @@
-# Pixelfed PHP SDK
+# Pixelfed PHP Library
 
-WIP. Use at your own risk.
+WIP - Not all endpoints are implemented yet
 
 ## Installation
 
@@ -11,7 +11,10 @@ composer require dansup/pixelfed-php
 ```
 
 ## Authentication
-To use this library, you must first obtain a Personal Access Token. Not all instances support this type of authorization yet.
+To use this library, you must first obtain a Personal Access Token. **Not all instances support this type of authorization yet.**
+
+Navigate to ```/settings/applications``` on the Pixelfed instance and generate a new ```Personal Access Tokens```. Use that token for authentication.
+
 
 ## Examples
 ### Nodeinfo
