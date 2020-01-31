@@ -1,5 +1,5 @@
 {
-    "name": "pixelfed/php-sdk",
+    "name": "dansup/pixelfed-php",
     "description": "Pixelfed PHP SDK",
     "keywords": [
         "pixelfed",
@@ -8,7 +8,7 @@
         "fediverse",
         "library"
     ],
-    "homepage": "https://github.com/pixelfed/pixelfed-php",
+    "homepage": "https://github.com/dansup/pixelfed-php",
     "license": "AGPL-3.0-only",
     "authors": [
         {
@@ -18,20 +18,22 @@
         }
     ],
     "require": {
-        "php": "^7.3"
+        "php": "^7.2",
+        "kitetail/zttp": "^0.6.0",
+        "guzzlehttp/guzzle": "^6.5"
     },
     "require-dev": {
-        "symfony/var-dumper": "^4.3",
-        "phpunit/phpunit": "^8.2"
+        "phpunit/phpunit": "^8.2",
+        "symfony/var-dumper": "^4.3"
     },
     "autoload": {
         "psr-4": {
-            "Pixelfed\\Api\\": "src"
+            "Pixelfed\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Pixelfed\\Api\\Tests\\": "tests"
+            "Pixelfed\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -40,15 +42,5 @@
     },
     "config": {
         "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Pixelfed\\Api\\ApiServiceProvider"
-            ],
-            "aliases": {
-                "Api": "Pixelfed\\Api\\ApiFacade"
-            }
-        }
     }
 }
