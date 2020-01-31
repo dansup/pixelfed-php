@@ -77,6 +77,60 @@ class PixelfedApi
 		return $this->get();
 	}
 
+	public function accountFollowRequests()
+	{
+		$this->furl("/api/v1/follow_requests");
+		return $this->get();
+	}
+
+	public function instance()
+	{
+		$this->furl("/api/v1/instance");
+		return $this->get();
+	}
+
+	public function accountMutes()
+	{
+		$this->furl("/api/v1/mutes");
+		return $this->get();
+	}
+
+	public function accountNotifications()
+	{
+		$this->furl("/api/v1/notifications");
+		return $this->get();
+	}
+
+	public function homeTimeline()
+	{
+		$this->furl("/api/v1/timelines/home");
+		return $this->get();
+	}
+
+	public function publicTimeline()
+	{
+		$this->furl("/api/v1/timelines/public");
+		return $this->get();
+	}
+
+	public function statusById($id)
+	{
+		$this->furl("/api/v1/statuses/{$id}");
+		return $this->get();
+	}
+
+	public function statusRebloggedById($id)
+	{
+		$this->furl("/api/v1/statuses/{$id}/reblogged_by");
+		return $this->get();
+	}
+
+	public function statusLikedById($id)
+	{
+		$this->furl("/api/v1/statuses/{$id}/favourited_by");
+		return $this->get();
+	}
+
 	protected function get()
 	{
 		return $this->client->get($this->curl)->json();
