@@ -24,6 +24,7 @@ php -f examples/nodeinfo.php
 
 
 ## Methods
+For a full list of methods, please view the [source code](https://github.com/dansup/pixelfed-php/blob/master/src/PixelfedApi.php). 
 
 ### nodeinfo()
 > GET /api/nodeinfo/2.0.json

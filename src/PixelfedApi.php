@@ -3,6 +3,7 @@
 namespace Pixelfed;
 
 use \Zttp\Zttp;
+use \Exception;
 
 class PixelfedApi
 {
@@ -177,6 +178,39 @@ class PixelfedApi
 			'filename' => 'tmp.jpg'
 		]];
 		return $this->multipartPost();
+	}
+
+	public function accountMuteById($id)
+	{
+		$this->furl("/api/v1/accounts/{$id}/mute");
+		return $this->post();
+	}
+
+	public function accountUnmuteById($id)
+	{
+		$this->furl("/api/v1/accounts/{$id}/unmute");
+		return $this->post();
+	}
+
+	public function statusCreate($mediaIds = [], $caption = null, bool $sensitive = false, $scope = 'public', $inReplyToId = null)
+	{
+		if(empty($mediaIds) || (!is_int($mediaIds) && !is_array($mediaIds))) {
+			throw new Exception('Invalid media_ids.');
+		}
+
+		if(!in_array($scope, ['private','unlisted','public'])) {
+			throw new Exception('Invalid scope. Must be private, unlisted or public');
+		}
+
+		$this->furl("/api/v1/statuses");
+		$this->params = [
+			'media_ids' => $mediaIds,
+			'status' => $caption,
+			'in_reply_to_id' => $inReplyToId,
+			'sensitive' => $sensitive,
+			'visibility' => $scope
+		];
+		return $this->post();
 	}
 
 	protected function get()
