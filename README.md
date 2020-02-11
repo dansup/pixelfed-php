@@ -1,6 +1,6 @@
 # Pixelfed PHP Library
 
-WIP - Not all endpoints are implemented yet
+PHP Library for [Pixelfed](https://pixelfed.org)
 
 ## Installation
 
