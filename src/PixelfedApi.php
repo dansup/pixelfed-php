@@ -9,6 +9,7 @@ class PixelfedApi
 	protected $domain;
 	protected $client;
 	protected $curl;
+	protected $params = [];
 
 	public function __construct(string $domain, $accessToken = null)
 	{
@@ -131,8 +132,60 @@ class PixelfedApi
 		return $this->get();
 	}
 
+	public function followAccountById($id)
+	{
+		$this->furl("/api/v1/accounts/{$id}/follow");
+		return $this->post();
+	}
+
+	public function unfollowAccountById($id)
+	{
+		$this->furl("/api/v1/accounts/{$id}/unfollow");
+		return $this->post();
+	}
+
+	public function accountBlockById($id)
+	{
+		$this->furl("/api/v1/accounts/{$id}/block");
+		return $this->post();
+	}
+
+	public function accountUnblockById($id)
+	{
+		$this->furl("/api/v1/accounts/{$id}/unblock");
+		return $this->post();
+	}
+
+	public function statusFavouriteById($id)
+	{
+		$this->furl("/api/v1/statuses/{$id}/favourite");
+		return $this->post();
+	}
+
+	public function statusUnfavouriteById($id)
+	{
+		$this->furl("/api/v1/statuses/{$id}/unfavourite");
+		return $this->post();
+	}
+
+	public function mediaUpload($file)
+	{
+		$this->furl("/api/v1/media");
+		$this->params = [[
+			'name' => 'file',
+			'contents' => $file,
+			'filename' => 'tmp.jpg'
+		]];
+		return $this->post();
+	}
+
 	protected function get()
 	{
 		return $this->client->get($this->curl)->json();
+	}
+
+	protected function post()
+	{
+		return $this->client->asMultipart()->post($this->curl, $this->params)->json();
 	}
 }
