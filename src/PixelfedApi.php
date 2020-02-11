@@ -176,7 +176,7 @@ class PixelfedApi
 			'contents' => $file,
 			'filename' => 'tmp.jpg'
 		]];
-		return $this->post();
+		return $this->multipartPost();
 	}
 
 	protected function get()
@@ -184,8 +184,13 @@ class PixelfedApi
 		return $this->client->get($this->curl)->json();
 	}
 
-	protected function post()
+	protected function multipartPost()
 	{
 		return $this->client->asMultipart()->post($this->curl, $this->params)->json();
+	}
+
+	protected function post()
+	{
+		return $this->client->post($this->curl, $this->params)->json();
 	}
 }
