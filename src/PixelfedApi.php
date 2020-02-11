@@ -194,8 +194,8 @@ class PixelfedApi
 
 	public function statusCreate($mediaIds = [], $caption = null, bool $sensitive = false, $scope = 'public', $inReplyToId = null)
 	{
-		if(empty($mediaIds) || (!is_int($mediaIds) && !is_array($mediaIds))) {
-			throw new Exception('Invalid media_ids.');
+		if(empty($mediaIds) || !is_array($mediaIds)) {
+			throw new Exception('Invalid media_ids. Must be an array of integers.');
 		}
 
 		if(!in_array($scope, ['private','unlisted','public'])) {
