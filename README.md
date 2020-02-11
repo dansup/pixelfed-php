@@ -26,17 +26,6 @@ php -f examples/nodeinfo.php
 ## Methods
 For a full list of methods, please view the [source code](https://github.com/dansup/pixelfed-php/blob/master/src/PixelfedApi.php). 
 
-### nodeinfo()
-> GET /api/nodeinfo/2.0.json
-
-```php
-use \Pixelfed\PixelfedApi;
-
-$domain = 'https://pixelfed.social';
-$api = new PixelfedApi($domain);
-$nodeinfo = $api->nodeinfo();
-```
-
 ### user()
 > GET /api/v1/accounts/verify_credentials
 
@@ -48,7 +37,61 @@ use \Pixelfed\PixelfedApi;
 $domain = 'https://pixelfed.social';
 $token = 'personal-access-token-here';
 $api = new PixelfedApi($domain, $token);
-$user = $api->user();
+$data = $api->user();
+```
+
+### accountById($id)
+> GET /api/v1/accounts/{$id}
+
+**AUTHENTICATION REQUIRED**
+
+```php
+use \Pixelfed\PixelfedApi;
+
+$domain = 'https://pixelfed.social';
+$token = 'personal-access-token-here';
+$api = new PixelfedApi($domain, $token);
+$data = $api->accountById($id);
+```
+
+### accountFollowersById($id)
+> GET /api/v1/accounts/{$id}/followers
+
+**AUTHENTICATION REQUIRED**
+
+```php
+use \Pixelfed\PixelfedApi;
+
+$domain = 'https://pixelfed.social';
+$token = 'personal-access-token-here';
+$api = new PixelfedApi($domain, $token);
+$data = $api->accountFollowersById($id);
+```
+
+
+### accountFollowingById($id)
+> GET /api/v1/accounts/{$id}/following
+
+**AUTHENTICATION REQUIRED**
+
+```php
+use \Pixelfed\PixelfedApi;
+
+$domain = 'https://pixelfed.social';
+$token = 'personal-access-token-here';
+$api = new PixelfedApi($domain, $token);
+$data = $api->accountFollowingById($id);
+```
+
+### nodeinfo()
+> GET /api/nodeinfo/2.0.json
+
+```php
+use \Pixelfed\PixelfedApi;
+
+$domain = 'https://pixelfed.social';
+$api = new PixelfedApi($domain);
+$data = $api->nodeinfo();
 ```
 
 ## Changelog

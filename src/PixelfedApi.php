@@ -7,11 +7,20 @@ use \Exception;
 
 class PixelfedApi
 {
+	/** @var string */
 	protected $domain;
+
+	/** @var \Zttp\Zttp */
 	protected $client;
+
+	/** @var string */
 	protected $curl;
+
+	/** @var array */
 	protected $params = [];
 
+	/** @param string $domain */
+	/** @param string $accessToken|null */
 	public function __construct(string $domain, $accessToken = null)
 	{
 		$this->domain = $domain;
