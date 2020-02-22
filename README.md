@@ -11,9 +11,7 @@ composer require dansup/pixelfed-php
 ```
 
 ## Authentication
-To use this library, you must first obtain a Personal Access Token. **Not all instances support this type of authorization yet.**
-
-Navigate to ```/settings/applications``` on the Pixelfed instance and generate a new ```Personal Access Tokens```. Use that token for authentication.
+You need a token from a Pixelfed instance. Navigate to ```/settings/applications``` on the Pixelfed instance and generate a new ```Personal Access Tokens```. Use that token for authentication.
 
 
 ## Examples
